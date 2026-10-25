@@ -1,0 +1,108 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* SOS Pulse Ring */
+.pulse-ring {
+    animation: pulse-border 1.8s infinite;
+}
+@keyframes pulse-border {
+    0% {
+        box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.75);
+    }
+    70% {
+        box-shadow: 0 0 0 35px rgba(225, 29, 72, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(225, 29, 72, 0);
+    }
+}
+
+/* Emergency Strobe Light */
+.strobe {
+    animation: strobe-bg 0.15s infinite alternate;
+}
+@keyframes strobe-bg {
+    0% { background-color: #e11d48; }
+    50% { background-color: #ffffff; }
+    100% { background-color: #020617; }
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #475569;
+    border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background-color: rgba(15, 23, 42, 0.6);
+}
+
+/* Leaflet Map Styles */
+#leafletMap {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    border-radius: 1rem;
+}
+.leaflet-container {
+    background-color: #0f172a !important;
+}
+
+/* Custom Marker Pins */
+.custom-user-pin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.radar-wave {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(244, 63, 94, 0.35);
+    animation: radar-pulse 2s infinite ease-out;
+}
+@keyframes radar-pulse {
+    0% { transform: scale(0.4); opacity: 1; }
+    100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* Toast Container */
+#toastContainer {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    pointer-events: none;
+}
+.toast-item {
+    pointer-events: auto;
+    animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: all 0.3s ease;
+}
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Modal Smooth Fade */
+.modal-overlay {
+    animation: fadeIn 0.2s ease-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
